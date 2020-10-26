@@ -1,0 +1,6 @@
+.articledetail{
+    border: 3px solid rgb(55, 171, 248);
+    padding: 0;
+    background-color: rgba(245, 118, 118, 0.616);
+    overflow: auto;
+}

@@ -1,0 +1,33 @@
+.my-drawer {
+  position: fixed;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  /* z-index: 99; */
+}
+.my-drawer .am-drawer-sidebar {
+  background-color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.my-drawer .am-drawer-sidebar .am-list {
+  width: 200px;
+  padding: 0;
+}
+
+.ygjfix {
+    position: fixed;;
+    right: 5px;
+    top: 20px;
+    width: 25px;
+    height: 20px;
+    background-color: #d2f5e3;
+    text-align: center;
+    line-height: 25px;
+    z-index: 99;
+    border-radius: 20%;
+}
+
+.am-drawer.am-drawer-left .am-drawer-draghandle, .am-drawer.am-drawer-right .am-drawer-draghandle{
+    height: 0;
+    width: 0;
+}

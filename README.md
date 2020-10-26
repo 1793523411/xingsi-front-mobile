@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+## 问题
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+文章格式的显示，尤其是图片
 
-## Available Scripts
 
-In the project directory, you can run:
+## 原版相册列表不含下拉加载更多
 
-### `yarn start`
+```js
+import React,{useState,useEffect} from "react";
+import { Button } from "antd-mobile";
+import ImgCard from "../../components/ImgCard";
+import QueueAnim from "rc-queue-anim";
+import axios from 'axios'
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+export default function Image() {
+  const [show, setShow] = useState(true);
+  const [imgList, setImgList] = useState([]);
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  useEffect(() => {
+    getData();
+  }, []);
 
-### `yarn test`
+  const getData = () => {
+    axios
+      .get("http://101.201.125.229:8081/album?pageNum=1&pageSize=5")
+      .then((res) => {
+        console.log(res.data.data.list);
+        setImgList(res.data.data.list);
+      });
+  };
+  const onClick = () => {
+    setShow(!show);
+  };
+  return (
+    <>
+      {/* <Button type="primary" onClick={onClick}>
+        Switch
+      </Button> */}
+      {imgList && (
+        <QueueAnim delay={300} interval={150}>
+          {imgList.map((item) => {
+            return (
+              <ImgCard
+              key={item.albumId}
+              albumId={item.albumId}
+              albumName={item.albumName}
+              thumbUrl={item.thumbUrl}
+              />
+            );
+          })}
+        </QueueAnim>
+      )}
+    </>
+  );
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `yarn build`
+## 原文章列表 不带下拉加载更多
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+import React, { useState, useEffect } from "react";
+import { Button } from "antd-mobile";
+import QueueAnim from "rc-queue-anim";
+import ArtileCard from "../../components/ArticleCard";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+import axios from "axios";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default function Article() {
+  const [show, setShow] = useState(true);
 
-### `yarn eject`
+  const [articleList, setArticleList] = useState([]);
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  useEffect(() => {
+    getData();
+  }, []);
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  const getData = () => {
+    axios
+      .get("http://101.201.125.229:8081/news?pageNum=1&pageSize=8")
+      .then((res) => {
+        console.log(res.data.data.list);
+        setArticleList(res.data.data.list);
+      });
+  };
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  const onClick = () => {
+    setShow(!show);
+  };
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  return (
+    <>
+      {/* <Button type="primary" onClick={onClick}>
+        Switch
+      </Button> */}
+      {articleList.length!==0 && (
+        <QueueAnim  delay={300} interval={150}>
+          {articleList.map((item) => {
+            return (
+              <ArtileCard
+                key={item.newsId}
+                newsId={item.newsId}
+                newsTitle={item.newsTitle}
+                authorName={item.authorName}
+                createTime={item.createTime}
+                newsContentView={item.newsContentView}
+                newsPictureViewUrl={item.newsPictureViewUrl}
+              />
+            );
+          })}
+        </QueueAnim>
+      )}
+    </>
+  );
+}
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```

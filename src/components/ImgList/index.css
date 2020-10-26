@@ -1,0 +1,9 @@
+.img{
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    /* z-index: 99; */
+    /* background-color: rgb(236, 90, 90); */
+    background-size: cover;
+    margin-bottom: 1vh;
+}

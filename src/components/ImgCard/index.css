@@ -1,0 +1,22 @@
+.placeholder {
+  background-color: #ebebef;
+  color: #bbb;
+  text-align: center;
+  height: 30vh;
+  line-height: 30px;
+  width: 100%;
+  background-size: cover;
+}
+
+.img-inner{
+    position: relative;
+    height: 100%;
+    background-image: linear-gradient(#fffbfb00,rgba(255, 255, 255, 0), #141313e1);
+    color: #fff;
+}
+
+.img-inner-font{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
