@@ -1,0 +1,10 @@
+.aboutCon{
+    margin-top: -3vh;
+}
+.aboutBgc{
+    height: 103vh;
+    width: 100vh;
+    background-image: url(../../asset/007543891bd13e8067269ca53109987f.jpeg);
+    background-size: contain;
+    position: fixed;
+}

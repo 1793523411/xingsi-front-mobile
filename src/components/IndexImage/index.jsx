@@ -16,6 +16,8 @@ export default function IndexImage(props) {
               albumId={item.albumId}
               albumName={item.albumName}
               thumbUrl={item.thumbUrl}
+              albumTime={item.albumTime}
+              albumDesc={item.albumDesc}
             />
           );
         })}

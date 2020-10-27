@@ -1,7 +1,16 @@
 .footer{
     position: absolute;
     width: 100%;
-    height: 53vh;
-    background-color: rgb(117, 141, 248);
+    /* height: 53vh; */
+    background: linear-gradient(180deg, #329fff 1%, #8c00ff 100%);
     transform: translateY(10%);
+}
+.footerImg{
+    margin-top: 3vh;
+    /* position: relative;
+    left: 50%;
+    transform: translateX(-50%); */
+    width: 15vh;
+    margin-bottom: 1vh;
+    /* height: 20vh; */
 }

@@ -22,7 +22,7 @@ class Demo extends React.Component {
   componentDidMount() {
     const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
     axios
-      .get("http://101.201.125.229:8081/news?pageNum=1&pageSize=2")
+      .get("http://101.201.125.229:8081/news?pageNum=1&pageSize=4")
       .then((res) => {
         console.log(res.data.data.list);
         this.setState({
@@ -40,7 +40,7 @@ class Demo extends React.Component {
     this.setState({ refreshing: true });
     axios
       .get(
-        `http://101.201.125.229:8081/news?pageNum=${this.state.count}&pageSize=2`
+        `http://101.201.125.229:8081/news?pageNum=${this.state.count}&pageSize=4`
       )
       .then((res) => {
         this.setState({ refreshing: false });

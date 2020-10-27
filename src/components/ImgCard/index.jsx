@@ -1,8 +1,10 @@
 import React from "react";
-import { WingBlank, WhiteSpace } from "antd-mobile";
+import { WingBlank, WhiteSpace, Flex } from "antd-mobile";
 import { Link } from "react-router-dom";
 
 import "./index.css";
+
+import time from '../../utils/time.js'
 
 export default function ImgCard(props) {
   const toImgList = (id) => {
@@ -10,17 +12,25 @@ export default function ImgCard(props) {
   };
 
   const PlaceHolder = ({ className = "", ...restProps }) => (
-    <Link to={"/img/"+ props.albumId}>
+    <Link to={"/img/" + props.albumId}>
       <div
         className={`placeholder`}
         {...restProps}
         style={{
-          backgroundImage:
-            "url("+props.thumbUrl+")",
+          backgroundImage: "url(" + props.thumbUrl + ")",
         }}
       >
         <div className="img-inner">
-          <span className="img-inner-font">{props.albumName}</span>
+          <div className="img-inner-font">
+          {props.albumName}<br></br>
+          {props.albumDesc.length > 8 ? props.albumDesc.substring(0,8)+'····':props.albumDesc}
+          </div>
+          {/* <div className="img-inner-font">
+          
+          </div> */}
+          <div className="img-inner-font2">
+          {time(props.albumTime)}
+          </div>
         </div>
       </div>
     </Link>

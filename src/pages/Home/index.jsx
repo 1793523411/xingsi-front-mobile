@@ -18,13 +18,14 @@ export default function Home(props) {
     "https://img-blog.csdnimg.cn/20201025144749474.png#pic_center",
     "https://img-blog.csdnimg.cn/20201025144758900.png#pic_center",
     "https://img-blog.csdnimg.cn/20201025144805811.png#pic_center",
+    "https://img-blog.csdnimg.cn/20201027162134402.png#pic_center",
     "https://img-blog.csdnimg.cn/20201025144811693.png#pic_center",
     "https://img-blog.csdnimg.cn/20201025144826681.png#pic_center"
   ];
 
   const sidebar = (
     <List>
-      {["首页", "行思新闻", "行思相册", "行思历史", "行思导航"].map(
+      {["首页", "行思新闻", "行思相册","行思简介", "行思历史", "行思导航"].map(
         (i, index) => {
           return (
             <List.Item

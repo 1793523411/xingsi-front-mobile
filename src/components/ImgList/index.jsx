@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WxImageViewer from "react-wx-images-viewer";
 import { WingBlank, WhiteSpace, Flex } from "antd-mobile";
+import QueueAnim from "rc-queue-anim";
 
 import "./index.css";
 import axios from "axios";
@@ -64,9 +65,10 @@ export default function ImgList(props) {
       <WhiteSpace size="sm" />
       <WingBlank size="m">
         <div className="img-list">
+          <QueueAnim delay={300} interval={150} type="scale">
           {imgList2.map((items, indexs) => {
             return (
-              <Flex>
+              <Flex key={index}>
                 {items.length === 2
                   ? items.map((item, index) => {
                       return (
@@ -104,6 +106,7 @@ export default function ImgList(props) {
               </Flex>
             );
           })}
+          </QueueAnim>
         </div>
         {isOpen ? (
           <WxImageViewer

@@ -1,5 +1,29 @@
 .banner{
     height: 100vh;
     width: 100%;
-    background-color: rgb(126, 233, 236);
+    background: linear-gradient(135deg, #329fff 1%, #8c00ff 100%);
+}
+
+.bannerimg{
+    width: 30vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-55%);
+    margin-top: 5vh;
+}
+.bannerbth{
+    display: inline-block;
+    border: 1px solid #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8%;
+
+}
+.am-button-borderfix{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    /* background-color: rgba(125, 195, 241, 0.315); */
 }

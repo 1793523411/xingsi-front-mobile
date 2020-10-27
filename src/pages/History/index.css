@@ -1,0 +1,12 @@
+.historyIcon{
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 50%;
+    background-color: rgb(139, 76, 76);
+}
+.historyCard{
+    width: 50vh;
+}
+.historyCardBody{
+    padding: 2vh;
+}
