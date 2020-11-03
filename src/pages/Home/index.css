@@ -18,13 +18,14 @@
     position: fixed;;
     right: 5px;
     top: 20px;
-    width: 25px;
-    height: 20px;
+    width: 23px;
+    height: 26px;
     background-color: #ebecf1;
     text-align: center;
     line-height: 25px;
     z-index: 99;
     border-radius: 20%;
+    font-size: 15px;
 }
 
 .am-drawer.am-drawer-left .am-drawer-draghandle, .am-drawer.am-drawer-right .am-drawer-draghandle{

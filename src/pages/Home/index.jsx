@@ -63,10 +63,11 @@ export default function Home(props) {
       ></Drawer>
       <div onClick={onOpenChange} className="ygjfix">
         {open ? (
-          <Icon type="left" size="xs" />
+          <i className="iconfont icon-toggle-left"></i>
         ) : (
-          <Icon type="right" size="xs" />
+          <i className="iconfont icon-toggle-right"></i>
         )}
+        
       </div>
     </div>
   );

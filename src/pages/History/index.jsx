@@ -35,7 +35,7 @@ export default function History(props) {
                 icon={
                   <i
                     className="iconfont icon-collection_fill"
-                    style={{ color: "#f9c0c0" }}
+                    style={{ color: "#f9c0c0" ,paddingLeft:3}}
                   ></i>
                 }
                 onClick={() => props.history.push('/history/'+item.yearId)}
