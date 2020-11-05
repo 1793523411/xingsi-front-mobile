@@ -19,7 +19,7 @@ export default function Link(){
         <div>
             <QueueAnim animConfig={[
             { opacity: [1, 0], translateX: [0, 50] }
-          ]} duration="1500">
+          ]} duration="1000">
                 
             {linkData.map(item => {
                 return <LinkCard linkData={item} key={item.typeId}/>
