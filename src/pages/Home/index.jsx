@@ -30,17 +30,16 @@ export default function Home(props) {
       {["首页", "行思新闻", "行思相册", "行思简介", "行思历史", "行思导航"].map(
         (i, index) => {
           return (
-            <Link
+            <List.Item key={index} thumb={icon[index]} style={{ fontSize: 12 }}>
+              <Link
                 to={"/" + index}
                 style={{ color: "#000", fontSize: 14 }}
                 onClick={() => setOpen(false)}
               >
-            <List.Item key={index} thumb={icon[index]} style={{ fontSize: 12 }}>
-              
                 {" "}
                 {i}
+              </Link>
             </List.Item>
-            </Link>
           );
         }
       )}

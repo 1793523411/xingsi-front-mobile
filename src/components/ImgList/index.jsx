@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WxImageViewer from "react-wx-images-viewer";
-import { WingBlank, WhiteSpace, Flex ,Toast,ActivityIndicator} from "antd-mobile";
+import { WingBlank, WhiteSpace, Flex } from "antd-mobile";
 import QueueAnim from "rc-queue-anim";
 
 import "./index.css";
@@ -14,25 +14,18 @@ export default function ImgList(props) {
   const [imgList1, setImgList1] = useState([]);
   const [imgList2, setImgList2] = useState([]);
 
-  const [animating,setAnimating] = useState(false)
-
   useEffect(() => {
     getDate();
   }, []);
 
   const getDate = () => {
-    setAnimating(true)
     console.log(props.match.params.id);
     axios
       .get("http://101.201.125.229:8081/album/" + props.match.params.id)
       .then((res) => {
-        setAnimating(false)
         let tmp1 = [];
         let tmp2 = [];
         let tmpimgList = [];
-        if(res.data.data.photosList.length === 0) {
-          Toast.offline('这个相册好像没有图片~', 3);
-        }
         res.data.data.photosList.forEach((item, index) => {
           tmpimgList.push(item.pictureUrl);
           tmp1.push(item);
@@ -126,13 +119,6 @@ export default function ImgList(props) {
           ""
         )}
       </WingBlank>
-      <div className="toast-example">
-              <ActivityIndicator
-                toast
-                text=""
-                animating={animating}
-              />
-            </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { WingBlank ,ActivityIndicator} from "antd-mobile";
+import { WingBlank } from "antd-mobile";
 import timer from '../../utils/time'
 
 import "./index.css";
@@ -14,19 +14,16 @@ export default function ArticleList(props) {
   const [authorName, setAuthorName] = useState(); //authorName createTime visited
   const [createTime, setCreateTime] = useState(); //authorName createTime visited
   const [visited, setVisited] = useState(); //authorName createTime visited
-  const [animating,setAnimating] = useState(false)
 
   useEffect(() => {
     getDate();
   }, []);
 
   const getDate = () => {
-    setAnimating(true)
     console.log(props.match.params.id);
     axios
       .get("http://101.201.125.229:8081/news/detail/" + props.match.params.id)
       .then((res) => {
-        setAnimating(false)
         console.log(res.data.data);
         setNewsContent(res.data.data.newsContent);
         setNewsTitle(res.data.data.newsTitle);
@@ -53,14 +50,6 @@ export default function ArticleList(props) {
         </div>
       } */}
       </WingBlank>
-      <div style={{textAlign:"center",margin:"1vh",height:"5vh"}}></div>
-      <div className="toast-example">
-              <ActivityIndicator
-                toast
-                text=""
-                animating={animating}
-              />
-            </div>
     </div>
   );
 }

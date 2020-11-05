@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { PullToRefresh, Button, Toast,ActivityIndicator } from "antd-mobile";
+import { PullToRefresh, Button, Toast } from "antd-mobile";
 import axios from "axios";
 import QueueAnim from "rc-queue-anim";
 import ImgCard from "../../components/ImgCard";
@@ -15,14 +15,10 @@ class Demo extends React.Component {
       data: [],
       count: 1,
       total: 0,
-      animating:false
     };
   }
 
   componentDidMount() {
-    this.setState({
-      animating:true
-    })
     const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
     axios
       .get("http://101.201.125.229:8081/album?pageNum=1&pageSize=5")
@@ -32,7 +28,6 @@ class Demo extends React.Component {
           height: hei,
           data: res.data.data.list,
           total: res.data.data.total,
-          animating:false
         });
       });
   }
@@ -40,7 +35,6 @@ class Demo extends React.Component {
   getnewDate() {
     this.setState({
       count: +this.state.count + 1,
-      animating:true
     });
     this.setState({ refreshing: true });
     axios
@@ -60,7 +54,6 @@ class Demo extends React.Component {
         // console.log(tmp2)
         this.setState({
           data: tmp2,
-          animating:false
         });
       });
   }
@@ -95,13 +88,6 @@ class Demo extends React.Component {
             })}
           </QueueAnim>
         </PullToRefresh>
-        <div className="toast-example">
-              <ActivityIndicator
-                toast
-                text=""
-                animating={this.state.animating}
-              />
-            </div>
       </div>
     );
   }
