@@ -21,17 +21,17 @@ export default function About(){
         },
         {
             name:"视创组",
-            img:"assets/3.png",
+            img:"assets/4.png",
             desc:"视创组以adobe系列pr为主，活用AE,Flash,Au等软件去打造视频，同时致力于以兴趣开发为根基的视频创作，用简单的技术做当初令自己心动的视频类型。以扎实的技术为核心，新奇的创意为灵魂，通过视频表达生活。"
         },
         {
             name:"游戏开发组",
-            img:"assets/4.png",
+            img:"assets/5.png",
             desc:"使用c#编程配合unity游戏引擎开发游戏或者使用c++、蓝图编程配合UE4游戏开发引擎开发游戏。"
         },
         {
             name:"文案运营组",
-            img:"assets/5.png",
+            img:"assets/3.png",
             desc:"文案运营组负责社团推广写推文，官Q官微公众号，office软件手里拿，社团生活真奇妙。"
         },
     ]

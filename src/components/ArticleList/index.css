@@ -1,6 +1,10 @@
 .articledetail{
-    border: 3px solid rgb(55, 171, 248);
+    /* border: 3px solid rgb(55, 171, 248); */
     padding: 0;
-    background-color: rgba(245, 118, 118, 0.616);
+    background-color: rgba(245, 118, 118, 0);
     overflow: auto;
+}
+/* 该样式对全局有效，所以是个隐患 */
+img{
+    width: 100%;
 }

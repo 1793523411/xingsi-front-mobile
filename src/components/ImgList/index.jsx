@@ -50,6 +50,7 @@ export default function ImgList(props) {
   };
 
   const onClose = () => {
+    console.log(imgList2)
     setIsOpen(false);
     // console.log("111")
   };
@@ -68,14 +69,14 @@ export default function ImgList(props) {
           <QueueAnim delay={300} interval={150} type="scale">
           {imgList2.map((items, indexs) => {
             return (
-              <Flex key={index}>
+              <Flex key={indexs}>
                 {items.length === 2
                   ? items.map((item, index) => {
                       return (
                         <Flex.Item>
                           <div
                             className="img"
-                            key={item}
+                            key={index}
                             onClick={() => openViewer(indexs*2+index)}
                             style={{
                               backgroundImage: "url(" + item.pictureUrl + ")",
