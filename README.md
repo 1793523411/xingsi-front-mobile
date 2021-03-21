@@ -1,6 +1,6 @@
 # 描述
 
-[移动端地址](http://xs.xsgzs.cn/)
+[移动端地址(请在移动端查看)](http://xs.xsgzs.cn/)
 
 技术栈：react，antdmobile
 
