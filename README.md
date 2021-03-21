@@ -23,7 +23,7 @@ export default function Image() {
 
   const getData = () => {
     axios
-      .get("http://101.201.125.229:8081/album?pageNum=1&pageSize=5")
+      .get("xxx")
       .then((res) => {
         console.log(res.data.data.list);
         setImgList(res.data.data.list);
@@ -78,7 +78,7 @@ export default function Article() {
 
   const getData = () => {
     axios
-      .get("http://101.201.125.229:8081/news?pageNum=1&pageSize=8")
+      .get("xxx")
       .then((res) => {
         console.log(res.data.data.list);
         setArticleList(res.data.data.list);
