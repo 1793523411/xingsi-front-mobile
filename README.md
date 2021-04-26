@@ -1,7 +1,8 @@
-## 问题
+# 描述
 
-文章格式的显示，尤其是图片
+[移动端地址(请在移动端查看)](http://xs.xsgzs.cn/)
 
+技术栈：react，antdmobile
 
 ## 原版相册列表不含下拉加载更多
 
@@ -22,7 +23,7 @@ export default function Image() {
 
   const getData = () => {
     axios
-      .get("http://101.201.125.229:8081/album?pageNum=1&pageSize=5")
+      .get("xxx")
       .then((res) => {
         console.log(res.data.data.list);
         setImgList(res.data.data.list);
@@ -77,7 +78,7 @@ export default function Article() {
 
   const getData = () => {
     axios
-      .get("http://101.201.125.229:8081/news?pageNum=1&pageSize=8")
+      .get("xxx")
       .then((res) => {
         console.log(res.data.data.list);
         setArticleList(res.data.data.list);
